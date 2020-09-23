@@ -20,10 +20,14 @@
             console.log('Desconectado al servidor');
         });
 
-        socket.on('mensaje', function(payload) {
+        socket.on('nuevo-mensaje', function(payload) {
             console.log('Alerta ', payload);
         });
 
+        socket.on('active-bands', function(payload) {
+            console.clear();
+            console.table(payload);
+        });
         socket.emit('mensaje', {
             nombre: 'Vidiic'
         });
